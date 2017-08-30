@@ -1,8 +1,9 @@
-# numpy模块，pandas模块 
-## 为什么使用numpy   
+# numpy笔记
+## 简介
 >
-运算速度快：numpy 和 pandas 都是采用 C 语言编写, pandas 又是基于 numpy, 是 numpy 的升级版本。
-消耗资源少：采用的是矩阵运算，会比 python 自带的字典或者列表快好多
+运算速度快：numpy 采用 C 语言编写  
+消耗资源少：采用的是矩阵运算  
+运算速度比 python 自带的字典或者列表快得多
 >
 ## 安装
 >
@@ -32,6 +33,7 @@ ones：创建数据全为1
 empty：创建数据接近0  
 arrange：按指定范围创建数据  
 linspace：创建线段  
+np.random.random:创建随机数矩阵
 >
 <pre><code>
 # 一维列表
@@ -75,6 +77,7 @@ a=np.random.random((2,4))
 #       [ 0.04836775,  0.04023552,  0.44091941,  0.21665268]])
 </code></pre>
 #### 3.numpy的基础运算
+>四则运算及平方运算
 <pre><code>
 # 定义np对象
 a=np.array([10,20,30,40])
@@ -82,7 +85,8 @@ b=np.arange(4)
 # 四则运算
 c=a-b   # array([10, 19, 28, 37])
 c=a+b   # array([10, 21, 32, 43])
-c=a*b   # array([  0,  20,  60, 120])
+c=a*b   # array([0,  20,  60, 120])
+c=b/a   # array([0,  0.05, 0.06666667, 0.075]
 # 平方
 c=b**2  # array([0, 1, 4, 9])
 </pre></code>
@@ -220,4 +224,111 @@ print(np.clip(A,5,9))
 # array([[ 9, 9, 9, 9]
 #        [ 9, 9, 8, 7]
 #        [ 6, 5, 5, 5]])
+</pre></code>
+#### 9.numpy的迭代器
+>flatten,A.flat
+<pre><code>
+import numpy as np
+A = np.arange(3,15).reshape((3,4))
+# 将多维矩阵展开为一列
+print(A.flatten())   
+# array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+# flat为迭代器，本身为object属性
+for item in A.flat:
+    print(item)
+# 3
+# 4
+……
+# 14
+</pre></code>
+#### 10.numpy的array合并
+>np.vstack,np.hstack
+<pre><code>
+# 两个矩阵的合并
+A = np.array([1,1,1])
+B = np.array([2,2,2])
+print(np.vstack((A,B)))    # vertical stack
+"""
+[[1,1,1]
+ [2,2,2]]
+"""
+D = np.hstack((A,B))       # horizontal stack
+print(D)
+# [1,1,1,2,2,2]
+# 多个矩阵的合并,axis指定行合并或列合并(0列,1行)
+D = np.concatenate((A,B,B,A),axis=1)
+print(D)
+"""
+array([[1, 2, 2, 1],
+       [1, 2, 2, 1],
+       [1, 2, 2, 1]])
+"""
+</code></pre>
+#### 11.numpy的newaxis
+>np.newaxis是 None 的一个别名 
+<pre><code>
+type(np.newaxis)
+# NoneType
+</code></pre>
+>通过对numpy一维数组的处理可以将其转变为矩阵(转置)
+<pre><code>
+x = np.arange(3)
+x[:, np.newaxis]
+array([[0],
+       [1],
+       [2]])
+X = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])
+X[:, 1]
+# array([2, 6, 10]) # 一维数组
+X[:, 1][:, np.newaxis]
+# array([[2],
+        [6],
+        [10]])  #二维数组
+</code></pre>
+#### 12.numpy的分割
+>np.split,np.array_split,np.vsplit,np.hsplit
+<pre><code>
+A = np.arange(12).reshape((3, 4))
+print(A)
+# array([[ 0,  1,  2,  3],
+         [ 4,  5,  6,  7],
+         [ 8,  9, 10, 11]])
+# 横向分割(当不能按指定值等分时,为错误分割)
+print(np.split(A, 3, axis=0))
+# [array([[0, 1, 2, 3]]), 
+   array([[4, 5, 6, 7]]), 
+   array([[ 8,  9, 10, 11]])]
+# 纵向分割
+print(np.split(A, 2, axis=1))
+# [array([[0, 1],
+         [4, 5],
+         [8, 9]]), 
+   array([[ 2,  3],
+         [ 6,  7],
+         [10, 11]])]
+print(np.vsplit(A, 3)) #等于 print(np.split(A, 3, axis=0))
+print(np.hsplit(A, 2)) #等于 print(np.split(A, 2, axis=1))
+<br>
+# 不等量分割
+print(np.array_split(A, 3, axis=1))
+#[array([[0, 1],
+         [4, 5],
+         [8, 9]]), 
+  array([[ 2],
+         [ 6],
+         [10]]), 
+  array([[ 3],
+         [ 7],
+         [11]])]
+</pre></code>
+#### 12.numpy的拷贝
+<pre><code>
+# 浅拷贝,共用内存
+a = np.arange(4)
+# array([0, 1, 2, 3])
+b = a
+b is a  # True
+# 深拷贝,独立内存
+b = a.copy()
+b is a  # False
 </pre></code>

@@ -2,6 +2,12 @@
   <dictionary name="cjwddz">
     <words>
       <w>cumsum</w>
+      <w>hsplit</w>
+      <w>hstack</w>
+      <w>matplotlib</w>
+      <w>newaxis</w>
+      <w>vsplit</w>
+      <w>vstack</w>
     </words>
   </dictionary>
 </component>
