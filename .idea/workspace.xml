@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/doc/note/numpy.md" line="1" />
+    <bookmark url="file://$PROJECT_DIR$/doc/note/numpy.md" line="3" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="057ecd95-d581-4b27-b1c3-a1473144d3c6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/note/matplotlib.md" afterPath="$PROJECT_DIR$/doc/note/matplotlib.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/note/numpy.md" afterPath="$PROJECT_DIR$/doc/note/numpy.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,8 +45,8 @@
         <entry file="file://$PROJECT_DIR$/doc/note/matplotlib.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="493">
-                <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+              <first_editor relative-caret-position="46">
+                <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -68,8 +70,8 @@
         <entry file="file://$PROJECT_DIR$/doc/note/numpy.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-5673">
-                <caret line="67" column="63" lean-forward="false" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -101,10 +103,10 @@
         <option value="$PROJECT_DIR$/codes/LearningTensorflow/src/learning base/testing/numpy&amp;pandas.py" />
         <option value="$PROJECT_DIR$/doc/note/python.md" />
         <option value="$PROJECT_DIR$/doc/note/numpy&amp;pandas.md" />
-        <option value="$PROJECT_DIR$/doc/note/numpy.md" />
         <option value="$PROJECT_DIR$/codes/LearningTensorflow/src/learning base/testing/matplotlib.py" />
         <option value="$PROJECT_DIR$/codes/LearningTensorflow/src/learning base/matplotlib.py" />
         <option value="$PROJECT_DIR$/codes/LearningTensorflow/src/learning base/testing/matplotlibTrain.py" />
+        <option value="$PROJECT_DIR$/doc/note/numpy.md" />
         <option value="$PROJECT_DIR$/doc/note/matplotlib.md" />
       </list>
     </option>
@@ -920,17 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/note/numpy.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-5673">
-            <caret line="67" column="63" lean-forward="false" selection-start-line="67" selection-start-column="63" selection-end-line="67" selection-end-column="63" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/doc/pic/1_2_2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -954,11 +945,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/doc/note/numpy.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/doc/note/matplotlib.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="493">
-            <caret line="120" column="0" lean-forward="true" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <first_editor relative-caret-position="46">
+            <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             <folding />
           </first_editor>
           <second_editor />
