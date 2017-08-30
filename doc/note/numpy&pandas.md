@@ -1,16 +1,16 @@
-#numpy模块，pandas模块
-##为什么使用numpy
+# numpy模块，pandas模块 
+## 为什么使用numpy   
 >
 运算速度快：numpy 和 pandas 都是采用 C 语言编写, pandas 又是基于 numpy, 是 numpy 的升级版本。
 消耗资源少：采用的是矩阵运算，会比 python 自带的字典或者列表快好多
 >
-##安装
+## 安装
 >
 sudo apt-get install python-numpy  
 sudo apt-get install python-pandas
 >
-##numpy基础内容
-####1.numpy属性
+## numpy基础内容
+#### 1.numpy属性
 >
 ndim：维度  
 shape：行数和列数  
@@ -23,7 +23,7 @@ print('dim:',array.ndim)    # 维度 dim: 2
 print('shape:',array.shape) # 行数和列数 shape:(2, 3)
 print('size:',array.size)   # 元素个数 size: 6
 </code></pre>
-####2.numpy创建array
+#### 2.numpy创建array
 >
 array：创建数组  
 dtype：指定数据类型  
@@ -74,7 +74,7 @@ a=np.random.random((2,4))
 # array([[ 0.94692159,  0.20821798,  0.35339414,  0.2805278 ],
 #       [ 0.04836775,  0.04023552,  0.44091941,  0.21665268]])
 </code></pre>
-####3.numpy的基础运算
+#### 3.numpy的基础运算
 <pre><code>
 # 定义np对象
 a=np.array([10,20,30,40])
@@ -86,7 +86,7 @@ c=a*b   # array([  0,  20,  60, 120])
 # 平方
 c=b**2  # array([0, 1, 4, 9])
 </pre></code>
-####4.numpy的矩阵运算
+#### 4.numpy的矩阵运算
 >dot 矩阵乘法
 <pre><code>
 a=np.array([[1,1],[0,1]])
@@ -96,13 +96,13 @@ c_dot = np.dot(a,b)
 # 或
 c_dot_2 = a.dot(b)
 </pre></code>
-####5.numpy的比较
+#### 5.numpy的比较
 <pre><code>
 b=np.arange(4)
 print(b<3)  
 # array([ True,  True,  True, False], dtype=bool)
 </code></pre>
-####6.numpy的元素函数
+#### 6.numpy的元素函数
 >sum,min,max求元素和及最值，axis声明行列运算（0列，1行）
 <pre><code>
 np.sum(a)   # 求元素之和
@@ -119,7 +119,24 @@ print("min =",np.min(a,axis=0))
 print("max =",np.max(a,axis=1))
 # max = [ 0.84869417  0.9043845 ]
 </code></pre>
-####6.numpy的索引函数
+#### 7.numpy的索引,切片,遍历
+>A[n],A[n][m]或A[1, 1]
+<pre><code>
+# 一维数组
+A = np.arange(3,15)
+# array([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14])
+print(A[3])    # 6
+# 矩阵
+A = np.arange(3,15).reshape((3,4))
+"""
+array([[ 3,  4,  5,  6]
+       [ 7,  8,  9, 10]
+       [11, 12, 13, 14]])
+"""
+print(A[2])         # [11 12 13 14]
+print(A[1][1])      # 8
+print(A[1, 1])      # 8
+</code></pre>
 >argmin,argmax分别求最小元素和最大元素的索引
 <pre><code>
 # A = array([[ 2, 3, 0, 5]
@@ -128,7 +145,32 @@ print("max =",np.max(a,axis=1))
 print(np.argmin(A))    # 2
 print(np.argmax(A))    # 10
 </code></pre>
-####7.numpy的函数
+>A[1, 1:3]
+<pre><code>
+A = np.arange(3,15).reshape((3,4))
+"""
+array([[ 3,  4,  5,  6]
+       [ 7,  8,  9, 10]
+       [11, 12, 13, 14]])
+"""
+print(A[1, 1:3])    # [8 9] (不包含第四个元素)
+</code></pre>
+>for row in A
+<pre><code>
+A = np.arange(3,15).reshape((3,4))
+# 逐行打印
+for row in A:   
+    print(row)
+"""    
+[ 3,  4,  5, 6]
+[ 7,  8,  9, 10]
+[11, 12, 13, 14]
+"""
+# 逐列打印
+for column in A.T:
+    print(column)
+</code></pre>
+#### 8.numpy的函数
 >sin,cos,average,mean,median  
 >cumsum,diff,nonzero,sort  
 >transpose,xx.T,clip
