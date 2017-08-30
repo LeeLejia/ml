@@ -25,13 +25,13 @@ sudo apt-get install python-matplotlib
 </code></pre>
 >
 ## matplotlib用法
-#####1.创建图像窗口
+##### 1.创建图像窗口
 <pre><code>
 plt.figure()    # 定义图像窗口 
 plt.plot(x, y)  # 画曲线
 plt.show()      # 显示窗口
 </code></pre>
-#####例子
+##### 例子
 <pre><code>
 import matplotlib.pyplot as plt
 import numpy as np
@@ -41,9 +41,9 @@ plt.figure()
 plt.plot(x, y)
 plt.show()
 </code></pre>
-#####效果
+##### 效果
 ![](../pic/1_2_1.png)
-#####2.调节参数
+##### 2.调节参数
 >指定窗口(figure)编号3,尺寸8*5  
 >画出两条线段,其中y2指定颜色red,线宽1.0,风格为虚线
 >num,color,linewidth,linestyle,label
@@ -53,7 +53,7 @@ plt.plot(x, y1)
 plt.plot(x, y2, color='red', linewidth=1.0, linestyle='--', label='xxx')
 plt.show()
 </code></pre>
-#####3.设置坐标轴
+##### 3.设置坐标轴
 >xlim,ylim,xlabel,ylabel  
 >xticks,yticks,label,legend
 >不支持中文
@@ -76,7 +76,7 @@ plt.plot(x, y, color='red', linewidth=1.0, linestyle='--', label='square line')
 plt.legend(loc='upper right')
 plt.show()
 </code></pre>
-#####例子
+##### 例子
 <pre><code>
 import matplotlib.pyplot as plt
 import numpy as np
@@ -90,32 +90,32 @@ plt.plot(x, y, color='red', linewidth=1.0, linestyle='--', label='square line')
 plt.legend(loc='upper right')
 plt.show()
 </code></pre>
-#####效果
+##### 效果
 ![](../pic/1_2_2.png)
-#####4.坐标轴位置调整
+##### 4.坐标轴位置调整
 
-#####5.Subplot 多合一显示
+##### 5.Subplot 多合一显示
 
-#####6.Subplot 分格显示
+##### 6.Subplot 分格显示
 
-#####7.Animation 动画
+##### 7.Animation 动画
 
-#####8.图中图
+##### 8.图中图
 > 略
-#####9.Annotation 标注
+##### 9.Annotation 标注
 > 略
-#####10.tick 能见度
+##### 10.tick 能见度
 > 略
-#####11.次坐标轴
+##### 11.次坐标轴
 
-#####12.Scatter 散点图
+##### 12.Scatter 散点图
 
-#####13.Bar柱状图
+##### 13.Bar柱状图
 
-#####14.Contours 等高线图
+##### 14.Contours 等高线图
 
-#####15.Image 图片
+##### 15.Image 图片
 
-#####16.3D 数据
+##### 16.3D 数据
 
 
