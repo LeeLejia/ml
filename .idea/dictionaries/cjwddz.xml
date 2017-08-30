@@ -4,10 +4,19 @@
       <w>cumsum</w>
       <w>hsplit</w>
       <w>hstack</w>
+      <w>linestyle</w>
+      <w>linewidth</w>
       <w>matplotlib</w>
       <w>newaxis</w>
       <w>vsplit</w>
       <w>vstack</w>
+      <w>xlabel</w>
+      <w>xlim</w>
+      <w>xticks</w>
+      <w>ylabel</w>
+      <w>ylim</w>
+      <w>ylixm</w>
+      <w>yticks</w>
     </words>
   </dictionary>
 </component>
