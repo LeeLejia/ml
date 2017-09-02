@@ -8,16 +8,9 @@ def main(_):
 
     mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
     x = tf.placeholder(tf.float32, [None, 784])
-    # x不是一个特定的值，而是一个占位符placeholder，我们在TensorFlow运行计算时输入这个值。
-    # 我们希望能够输入任意数量的MNIST图像，每一张图展平成784维的向量。
-    # 我们用2维的浮点数张量来表示这些图，这个张量的形状是[None，784 ]。（这里的None表示此张量的第一个维度可以是任何长度的。）
+    # 我们用2维的浮点数张量来表示这些图，这个张量的形状是[None, 784]。（这里的None表示此张量的第一个维度可以是任何长度的。）
     w = tf.Variable(tf.zeros([784, 10]))
     b = tf.Variable(tf.zeros([10]))
-    # 我们的模型也需要权重值和偏置量，当然我们可以把它们当做是另外的输入（使用占位符）
-    # 但TensorFlow有一个更好的方法来表示它们：Variable 。
-    # 一个Variable代表一个可修改的张量，存在在TensorFlow的用于描述交互性操作的图中。
-    # 它们可以用于计算输入值，也可以在计算中被修改。对于各种机器学习应用，一般都会有模型参数，可以用Variable表示。
-
     # 我们赋予tf.Variable不同的初值来创建不同的Variable：在这里，我们都用全为零的张量来初始化W和b。
     # 因为我们要学习W和b的值，它们的初值可以随意设置。
     # 注意，W的维度是[784，10]，因为我们想要用784维的图片向量乘以它以得到一个10维的证据值向量，每一位对应不同数字类。
@@ -47,9 +40,8 @@ def main(_):
     # TensorFlow只需将每个变量一点点地往使成本不断降低的方向移动。
     # 当然TensorFlow也提供了其他许多优化算法：只要简单地调整一行代码就可以使用其他的算法。
 
-    init = tf.global_variables_initializer()
     sess = tf.Session()
-    sess.run(init)
+    sess.run(tf.global_variables_initializer())
     # 我们已经设置好了我们的模型。在运行计算之前，我们添加一个操作来初始化我们创建的变量
 
     for i in range(1000):
@@ -80,15 +72,13 @@ def main(_):
 
     # region 自定义的预览中间数据
     print("自定义预览...")
-    mnist.test.next_batch(100)
-    batch_x, batch_y = mnist.test.next_batch(1)   #取一组训练数据
+    batch_x, batch_y = mnist.test.next_batch(1)   # 取一组训练数据
     # batch_x 为（1，784）数组（保存图像信息） batch_y 为（1,10）（保存图像标签，第几位数是1，就表示几）
-    print(sess.run(accuracy, feed_dict={x: batch_x, y_: batch_y}))  #验证训练数据的准确性
-    im = np.reshape(batch_x,(28,28))
+    print(sess.run(accuracy, feed_dict={x: batch_x, y_: batch_y}))  # 验证训练数据的准确性
+    im = np.reshape(batch_x, (28, 28))
     # 将一维数组转化为28*28的图像数组  float32 （0-1）
     # 此时通过观察数组中数字部分，能大致的看出图像表示的数字
     # 为了直观的看到，可以将数组转化为图像
-
 
     # endregion
 
@@ -99,22 +89,22 @@ def main(_):
     print("自定义的测试...")
 
     imm =np.array(Image.open('C:/Users/lejia/Pictures/7.png').convert('L'))  # 打开图片，转化为灰度并转化为数组size（n,m） 值0-255
-    imm = imm/255           #将值转化为0-1
-    imm_3 = Image.fromarray(imm)    #转化为图像
-    imm_4 = imm_3.resize([28,28])   #压缩
-    im_array = np.array(imm_4)     #转化为数组
-    fs = im_array.reshape((1,784))  #转化为符合验证一维的数组
+    imm = imm/255                   # 将值转化为0-1
+    imm_3 = Image.fromarray(imm)    # 转化为图像
+    imm_4 = imm_3.resize([28,28])   # 压缩
+    im_array = np.array(imm_4)      # 转化为数组
+    fs = im_array.reshape((1,784))  # 转化为符合验证一维的数组
     print('before')
-    print(sess.run(tf.argmax(y,1), feed_dict={x: fs})) # 输出模型的识别值
+    print(sess.run(tf.argmax(y,1), feed_dict={x: fs}))  # 输出模型的识别值
     print('after')
-    #或者 自己数据的话需要反色
+    # 或者 自己数据的话需要反色
 
     imm =np.array(Image.open('C:/Users/lejia/Pictures/2.png').convert('L').resize([28,28]))
 
     imagg=Image.fromarray(np.uint8(imm*255))
     imagg.show()
 
-    imm = 255-imm  #imm、255  反向处理
+    imm = 255-imm  # imm、255  反向处理
     imm = imm/255
     imm = -imm+1   # 自己测试图片效果太差，示例的数组无字处为0（黑底白字）。可以通过自定义函数转化自己的数组，这里利用的是最简单的 函数
 
@@ -130,16 +120,16 @@ if __name__ == '__main__':
     tf.app.run(main=main)
 
 
-def checkSinglePic(sess,path,x,y,format=1):
-    imm =np.array(Image.open(path).convert('L'))  # 打开图片，转化为灰度并转化为数组size（n,m） 值0-255
-             #将值转化为0-1
-    if format==0:
-        imm = 255-imm  #imm、255  反向处理
+def check_single_pic(sess, path, x, y, format=1):
+    imm = np.array(Image.open(path).convert('L'))  # 打开图片，转化为灰度并转化为数组size（n,m） 值0-255
+    # 将值转化为0-1
+    if format == 0:
+        imm = 255-imm  # imm、255  反向处理
         imm = imm/255
         imm = -imm+1   # 自己测试图片效果太差，示例的数组无字处为0（黑底白字）。可以通过自定义函数转化自己的数组，这里利用的是最简单的 函数
     imm = imm/255
-    imm_3 = Image.fromarray(imm)    #转化为图像
-    imm_4 = imm_3.resize([28,28])   #压缩
-    im_array = np.array(imm_4)     #转化为数组
-    fs = im_array.reshape((1,784))  #转化为符合验证一维的数组
-    return sess.run(tf.argmax(y,1), feed_dict={x: fs})  # 输出模型的识别值
+    imm_3 = Image.fromarray(imm)    # 转化为图像
+    imm_4 = imm_3.resize([28, 28])   # 压缩
+    im_array = np.array(imm_4)      # 转化为数组
+    fs = im_array.reshape((1, 784))  # 转化为符合验证一维的数组
+    return sess.run(tf.argmax(y, 1), feed_dict={x: fs})  # 输出模型的识别值

@@ -14,7 +14,7 @@ y_softplus = tf.nn.softplus(x)
 
 sess = tf.Session()
 y_relu, y_sigmoid, y_tanh, y_softplus = sess.run([y_relu, y_sigmoid, y_tanh, y_softplus])
-print("y_relu:", y_relu)
+
 # plt to visualize these activation function
 plt.figure(1, figsize=(8, 6))
 plt.subplot(221)

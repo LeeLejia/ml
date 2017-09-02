@@ -102,9 +102,9 @@ class NumRec(object):
         print("训练数据加载完毕")
         # 训练过程可视化
         # def _visual(self):
-        #     tf.summary.scalar('x',self.x)
-        #     self.merged_summary_op =tf.summary.merge_all()
-        #     self.summary_writer = tf.train.summary.FileWriter(self.sess.graph,'E:\project\python_project\LearningTensorflow\data\dir','XXXX')
+        # tf.summary.scalar('x',self.x)
+        # self.merged_summary_op =tf.summary.merge_all()
+        # self.summary_writer = tf.train.summary.FileWriter(self.sess.graph,'E:\project\python_project\LearningTensorflow\data\dir','XXXX')
 
 
 class PicHelper(object):
