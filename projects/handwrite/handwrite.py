@@ -1,3 +1,7 @@
+"""
+    手写数字识别
+    cjwddz@qq.com
+"""
 import os
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 import tensorflow as tf
@@ -96,11 +100,11 @@ def adjust_content(img):
     return arr, [hs_max_value, vs_max_index]
 
 # 是否进入训练
-Train = False
+Train = True
 saver = tf.train.Saver()
 UserData = False
 if UserData:
-    saver.restore(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\codes\\LearningTensorflow\\src\\data\\handwrite")
+    saver.restore(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\projects\\handwrite\\tmp\\handwrite")
 if Train:
     # 训练
     train_accuracy = 0
@@ -111,10 +115,10 @@ if Train:
         if i % 100 == 0:
             print("step %d, accuracy %.4f" % (i, train_accuracy))
     print("训练完毕！当前模型准确率%.4f" % train_accuracy)
-    saver.save(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\codes\\LearningTensorflow\\src\\data\\handwrite")
+    saver.save(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\projects\\handwrite\\tmp\\handwrite")
 else:
     # 读取训练的模型
-    saver.restore(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\codes\\LearningTensorflow\\src\\data\\handwrite")
+    saver.restore(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\projects\\handwrite\\tmp\\handwrite")
 
 # 是否评估模型
 Assess = False
@@ -153,10 +157,10 @@ if Assess:
     print("ok!")
 
 # 献均的数据评估模型
-Test = True
+Test = False
 if Test:
     # 使用自定义数据评估模型
-    url = 'C:\\Users\\lejia\\Desktop\\git-project\\ml\\codes\\LearningTensorflow\\data\\myimag_temp'
+    url = 'C:\\Users\\lejia\\Desktop\\git-project\\ml\\projects\\handwrite\\hard_img'
     count = 0
     right = 0
     for parent, _, filenames in os.walk(url):
@@ -174,7 +178,6 @@ if Test:
             print("至此，正确预测%d,总数%d,准确率为:%0.4f" % (right, count, right / count))
             print("图片的数字可能为:", np.argmax(pred, 1), "可信度:%0.4f " % (np.float32(np.max(pred, 1))/np.float32(np.sum(pred))), np.int32(pred > 1e-02)*[[10, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
     print("ok!")
-    # saver.save(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\codes\\LearningTensorflow\\src\\data\\handwrite")
 
 # region 手写板实现
 drawing = False

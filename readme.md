@@ -9,5 +9,5 @@
      * tensorflow 笔记 （未整理）
      * python 笔记 （未整理）
      * matplotlib 笔记（未整理）
-* 具体项目  
+* projects 具体项目  
     * handwrite 加强版的手写数字识别

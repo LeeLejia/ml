@@ -1,3 +1,7 @@
+"""
+    简单线性回归
+    cjwddz@qq.com
+"""
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt

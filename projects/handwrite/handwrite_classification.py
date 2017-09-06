@@ -1,3 +1,7 @@
+"""
+    提取手写数字的两个特征，用以辅助handwrite，提高识别率
+    cjwddz@qq.com
+"""
 import os
 import tensorflow.examples.tutorials.mnist.input_data as input_data
 import tensorflow as tf
