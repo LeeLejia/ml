@@ -15,9 +15,6 @@ p_y = tf.placeholder(dtype=tf.float32, shape=[None, 10])
 w = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 
-# 定义数据源
-mnist = input_data.read_data_sets('MNIST_data/', one_hot=True)
-
 # 初始化第一层卷积 卷积核5*5,1通道,32输出
 w_conv1 = tf.Variable(tf.truncated_normal([5, 5, 1, 32], stddev=0.1))  # 得到正态分布的预设值
 b_conv1 = tf.Variable(tf.constant(0.1, shape=[32]))
@@ -77,12 +74,12 @@ def adjust_content(img):
         v = np.max(t, axis=0)
         ta = np.argwhere(h)
         tb = np.argwhere(v)
-        left = np.reshape(tb[0], 1)
-        right = np.reshape(tb[-1:], 1)
-        top = np.reshape(ta[0], 1)
-        bottom = np.reshape(ta[-1:], 1)
+        left = np.reshape(tb[0], 1)[0]
+        right = np.reshape(tb[-1:], 1)[0]
+        top = ta[0][0]
+        bottom = ta[-1:][0]
         h_center = right-left
-        cut = 28-bottom+top   # 垂直切除
+        cut = (28-bottom+top)[0]   # 垂直切除
         excursion_l = int(left if (cut/2) >= left else (cut/2))              # 左边偏移
         excursion_r = int((27-right) if (cut/2) >= (27-right) else (cut/2))  # 右边偏移
         # 截取关键区域图片平移
@@ -102,16 +99,19 @@ def adjust_content(img):
 # 是否进入训练
 Train = True
 saver = tf.train.Saver()
-UserData = False
-if UserData:
+UseData = False
+if UseData:
     saver.restore(sess, "C:\\Users\\lejia\\Desktop\\git-project\\ml\\projects\\handwrite\\tmp\\handwrite")
 if Train:
     # 训练
     train_accuracy = 0
+    # 定义数据源
+    print("准备数据中,请耐心等待...")
+    mnist = input_data.read_data_sets('MNIST_data/', one_hot=True)
     for i in range(1200):
         batch = mnist.train.next_batch(100)
         feed_data, _ = adjust_content(batch[0])
-        train_accuracy, _ = sess.run([accuracy, train_step], feed_dict={p_x: feed_data, p_y: batch[1], p_keep_prob: 0.8})
+        train_accuracy, _ = sess.run([accuracy, train_step], feed_dict={p_x: feed_data, p_y: batch[1], p_keep_prob: 0.75})
         if i % 100 == 0:
             print("step %d, accuracy %.4f" % (i, train_accuracy))
     print("训练完毕！当前模型准确率%.4f" % train_accuracy)
@@ -187,7 +187,7 @@ last_y = -1
 
 # 创建回调函数
 def draw_pic(event, x, y, flags, _):
-    global drawing, mode, last_x, last_y, img
+    global drawing,last_x, last_y, img
     # 当按下左键时，返回起始的位置坐标
     if event == cv.EVENT_LBUTTONDOWN:
         drawing = True
