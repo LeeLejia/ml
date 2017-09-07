@@ -6,7 +6,5 @@
 import numpy as np
 import tensorflow as tf
 
-a = tf.constant([-1.0, 2.0])
-with tf.Session() as sess:
-    b = tf.nn.relu(a)
-    print(sess.run(b))
+in_x = tf.placeholder(tf.float32, shape=(50, 1))
+in_y = tf.

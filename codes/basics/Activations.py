@@ -19,5 +19,6 @@ with tf.Session() as sess:
     plt.plot(x, sess.run(tf.nn.tanh(x)), c='red', label='tanh')
     # sigmoid将值映射到0-1之间
     plt.plot(x, sess.run(tf.nn.sigmoid(x)), c='black', label='sigmoid')
+
     plt.legend(loc='best')
     plt.show()
