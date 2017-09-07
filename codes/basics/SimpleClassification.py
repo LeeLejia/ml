@@ -1,5 +1,5 @@
 """
-    简单分类学习
+    分类学习
     cjwddz@qq.com
 """
 import tensorflow as tf

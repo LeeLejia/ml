@@ -1,5 +1,5 @@
 """
-    简单线性回归
+    线性回归
     cjwddz@qq.com
 """
 import tensorflow as tf
