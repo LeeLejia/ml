@@ -7,4 +7,4 @@ import numpy as np
 import tensorflow as tf
 
 in_x = tf.placeholder(tf.float32, shape=(50, 1))
-in_y = tf.
+in_y = tf.placeholder(tf.float32, shape=(50, 1))

@@ -1,4 +1,3 @@
-[TOC]  
 
 # matplotlib简介
 ## 简介

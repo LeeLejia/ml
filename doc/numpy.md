@@ -1,4 +1,3 @@
-[TOC]
 
 # numpy笔记
 ## 简介
@@ -73,6 +72,12 @@ a = np.linspace(1,10,20).reshape((5,4)) # 更改shape
 a=np.random.random((2,4))
 # array([[ 0.94692159,  0.20821798,  0.35339414,  0.2805278 ],
 #       [ 0.04836775,  0.04023552,  0.44091941,  0.21665268]])
+# 获取高斯分布的数据
+numpy.random.normal(loc=0.0, scale=1.0, size=None)
+    loc：float           # 此概率分布的均值（对应着整个分布的中心centre）
+    scale：float         # 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）
+    size：int or tuple   # 输出的shape，默认为None，只输出一个值
+np.random.randn(size)    # 所谓标准正态分布（μ=0,σ=1），对应于np.random.normal(loc=0, scale=1, size)。
 </code></pre>
 #### 3.numpy的基础运算
 >四则运算及平方运算

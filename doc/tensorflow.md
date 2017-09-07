@@ -13,6 +13,12 @@ tf.reduce_mean(x)    # 2.5 如果不指定第二个参数，那么就在所有�
 tf.reduce_mean(x, 0) # [2.,  3.]   指定第二个参数为0，则第一维的元素取平均值，即每一列求平均值
 tf.reduce_mean(x, 1) # [1.5,  3.5] 指定第二个参数为1，则第二维的元素取平均值，即每一行求平均值
 </code></pre>
+>使用tf.nn.dropout给数据加噪音
+<pre><code>
+# tf.nn.dropout一般用于训练数据时候，人为的制造数据丢失（随机置零）,以避免过拟合的情况发生
+# 这里我们用来给数据添加噪音
+
+</code></pre>
 >tf.reset_default_graph
 <pre><code>
 # 清除网络
